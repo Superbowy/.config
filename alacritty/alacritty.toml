@@ -1,0 +1,18 @@
+[env]
+TERM = "alacritty"
+
+[general]
+import = [
+    "~/.config/alacritty/themes/carbonfox.toml"
+]
+
+[window]
+padding.x = 10
+padding.y = 10
+
+decorations = "Buttonless"
+opacity = 0.9
+blur = true
+
+[font]
+size = 14
