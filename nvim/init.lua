@@ -8,6 +8,7 @@ vim.cmd("set shiftwidth=4")
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
+vim.keymap.set({"n", "v"}, "<Space>", "<Nop>")
 
 --Lazy installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
