@@ -10,6 +10,15 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
 vim.keymap.set({"n", "v"}, "<Space>", "<Nop>")
 
+vim.keymap.set('n', '<C-h>', '<C-w>h', {})
+vim.keymap.set('n', '<C-j>', '<C-w>j', {})
+vim.keymap.set('n', '<C-k>', '<C-w>k', {})
+vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+
+vim.keymap.set('n', '<Leader>t', ':split<CR>:wincmd j<CR>:resize 10<CR>:terminal<CR>', {})
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:wincmd k<CR>', {})
+
+
 --Lazy installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -30,7 +39,10 @@ vim.cmd([[
 augroup TransparentBackground
 autocmd!
 autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
+autocmd ColorScheme * highlight NormalNC ctermbg=none guibg=none
 autocmd ColorScheme * highlight NonText ctermbg=none guibg=none
+autocmd ColorScheme * highlight NeoTreeNormal ctermbg=none guibg=none
+autocmd ColorScheme * highlight NeoTreeNormalNC ctermbg=none guibg=none
 augroup END
 ]])
 

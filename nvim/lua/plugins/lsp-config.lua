@@ -8,7 +8,8 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            auto_install = true
+            auto_install = true,
+            ensure_installed = { "lua_ls", "pylsp", "clangd", "typescript-language-server"}, -- Added "clangd" here
         }
     },
     {
@@ -22,10 +23,16 @@ return {
             lspconfig.pylsp.setup({
                 capabilities = capabilities
             })
+            lspconfig.clangd.setup {
+                capabilities = capabilities
+            }
+            lspconfig.ts_ls.setup{
+                capabilities = capabilities
+            }
 
             vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
         end
     }
-} 
+}
