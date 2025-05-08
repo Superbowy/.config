@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         opts = {
             auto_install = true,
-            ensure_installed = { "lua_ls", "pylsp", "clangd", "typescript-language-server"}, -- Added "clangd" here
+            ensure_installed = { "lua_ls", "pylsp", "clangd"}, -- Added "clangd" here
         }
     },
     {

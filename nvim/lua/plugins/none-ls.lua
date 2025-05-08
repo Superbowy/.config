@@ -10,9 +10,7 @@ return {
 				null_ls.builtins.formatting.isort,
 				null_ls.builtins.formatting.clang_format,
 			},
-			clang_format = {
-				command = "clang-format",
-			},
+            clang_format = {command = "clang-format",},
 		})
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 	end,
