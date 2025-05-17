@@ -8,23 +8,32 @@ vim.cmd("set shiftwidth=4")
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
-vim.keymap.set({"n", "v"}, "<Space>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 
-vim.keymap.set('n', '<C-h>', '<C-w>h', {})
-vim.keymap.set('n', '<C-j>', '<C-w>j', {})
-vim.keymap.set('n', '<C-k>', '<C-w>k', {})
-vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+vim.keymap.set("n", "<C-h>", "<C-w>h", {})
+vim.keymap.set("n", "<C-j>", "<C-w>j", {})
+vim.keymap.set("n", "<C-k>", "<C-w>k", {})
+vim.keymap.set("n", "<C-l>", "<C-w>l", {})
 
-vim.keymap.set('n', '<Leader>t', ':split<CR>:wincmd j<CR>:resize 10<CR>:terminal<CR>', {})
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:wincmd k<CR>', {})
+vim.keymap.set("n", "<Leader>t", ":split<CR>:wincmd j<CR>:resize 10<CR>:terminal<CR>", {})
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:wincmd k<CR>", {})
 
-vim.keymap.set({"n", "i"}, '<leader>a', '<esc>o```{python}<cr>```<esc>O', {})
+vim.keymap.set("n", "<leader>a", "<esc>o```{python}<cr>```<esc>O", {})
 
-vim.api.nvim_create_autocmd('TextYankPost',{
-    desc = "Highlight when yanking",
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking",
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
+-- Disable python loader - not sure why I would need it
+vim.g.loaded_python3_provider = 1
+vim.keymap.set("n", "<leader>qp", ":QuartoPreview<CR>", {})
+vim.filetype.add({
+	extension = {
+		qmd = "quarto",
+	},
 })
 
 --Lazy installation
@@ -42,7 +51,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
 
 -- Color Scheme
 vim.cmd([[

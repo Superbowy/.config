@@ -29,9 +29,9 @@ return {
 					["<C-j>"] = cmp.mapping.select_next_item(),
 				}),
 				sources = cmp.config.sources({
+					{ name = "otter" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
-                    { name = "otter"},
 				}, {
 					{ name = "buffer" },
 				}),
