@@ -18,6 +18,14 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', {})
 vim.keymap.set('n', '<Leader>t', ':split<CR>:wincmd j<CR>:resize 10<CR>:terminal<CR>', {})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:wincmd k<CR>', {})
 
+vim.keymap.set({"n", "i"}, '<leader>a', '<esc>o```{python}<cr>```<esc>O', {})
+
+vim.api.nvim_create_autocmd('TextYankPost',{
+    desc = "Highlight when yanking",
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
 
 --Lazy installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -35,6 +43,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+
+-- Color Scheme
 vim.cmd([[
 augroup TransparentBackground
 autocmd!
