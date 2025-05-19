@@ -27,7 +27,6 @@ return {
 				capabilities = capabilities,
 				settings = {
 					python = {
-						analysis = { useLibraryCodeForTypes = true },
 					},
 				},
 			})
