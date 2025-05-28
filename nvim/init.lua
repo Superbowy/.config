@@ -1,5 +1,6 @@
 vim.wo.number = true
 vim.wo.relativenumber = true
+--vim.o.showtabline = 0
 
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
@@ -14,11 +15,36 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", {})
 vim.keymap.set("n", "<C-j>", "<C-w>j", {})
 vim.keymap.set("n", "<C-k>", "<C-w>k", {})
 vim.keymap.set("n", "<C-l>", "<C-w>l", {})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
 
-vim.keymap.set("n", "<Leader>t", ":split<CR>:wincmd j<CR>:resize 10<CR>:terminal<CR>", {})
+-- Terminal (normal)
+vim.keymap.set("n", "<Leader>t", ":split<CR>:wincmd j<CR>:resize 20<CR>:terminal<CR>", {})
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:wincmd k<CR>", {})
 
-vim.keymap.set("n", "<leader>a", "<esc>o```{python}<cr>```<esc>O", {})
+-- Quarto
+vim.keymap.set("n", "<leader>a", "o<cr><cr>```{python}<cr>```<esc>O", {})
+
+-- Line on cursor in normal mode, but not in insert mode
+vim.o.cursorline = true
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1a1a1a" })
+vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+	group = "CursorLineControl",
+	pattern = "*",
+	callback = function()
+		vim.opt_local.cursorline = false
+	end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+	group = "CursorLineControl",
+	pattern = "*",
+	callback = function()
+		vim.opt_local.cursorline = true
+	end,
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking",

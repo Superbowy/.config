@@ -11,9 +11,19 @@ padding.x = 10
 padding.y = 10
 
 decorations = "Buttonless"
-opacity = 0.9
+opacity = 0.95
 blur = true
 
 [font]
 size = 14
 normal = {family = "MesloLGS NF", style = "Regular"}
+
+[[keyboard.bindings]]
+chars = "\u001B[113;2u"
+key = "Return"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[13;5u"
+key = "Return"
+mods = "Control"

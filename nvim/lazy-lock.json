@@ -19,5 +19,6 @@
   "otter.nvim": { "branch": "main", "commit": "fa436071c67233e6cd466268212feaf4ff4ed406" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "quarto-nvim": { "branch": "main", "commit": "5325af3731ac9840b308791f08ad660958d76163" },
-  "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" }
+  "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "vim-slime": { "branch": "main", "commit": "507107dd24c9b85721fa589462fd5068e0f70266" }
 }

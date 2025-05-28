@@ -10,7 +10,7 @@ return {
 
 			require("otter").setup({
 				lsp = {
-					diagnostic_update_events = { "BufWritePost", "InsertLeave"},
+					diagnostic_update_events = { "BufWritePost"},
 				},
 			})
 		end,
